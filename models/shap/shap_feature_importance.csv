@@ -1,0 +1,151 @@
+Feature,Mean_Absolute_SHAP
+cat__Fault_Third Party,0.0402517173843592
+cat__Fault_Policy Holder,0.03664188248677806
+cat__VehicleCategory_Sport,0.03087271045778351
+cat__BasePolicy_Liability,0.028319864508337254
+cat__BasePolicy_All Perils,0.027481688665493696
+cat__PolicyType_Sedan - Liability,0.026599453430799076
+cat__BasePolicy_Collision,0.023843425705376765
+cat__PolicyType_Sedan - All Perils,0.023670909401644614
+cat__VehicleCategory_Sedan,0.0219567308422224
+cat__VehiclePrice_20000 to 29000,0.018888706039397067
+cat__PolicyType_Sedan - Collision,0.01856709524827819
+cat__AgeOfPolicyHolder_31 to 35,0.015337749589442016
+cat__AgeOfVehicle_more than 7,0.012810724642169981
+cat__NumberOfSuppliments_none,0.012501384097654855
+cat__PastNumberOfClaims_none,0.01220180878997946
+cat__AgeOfVehicle_7 years,0.00917175695043899
+cat__Make_Pontiac,0.008989757493823535
+cat__AgeOfPolicyHolder_36 to 40,0.00867908005618067
+cat__PastNumberOfClaims_2 to 4,0.008664945719040328
+cat__AgeOfPolicyHolder_41 to 50,0.008121342672818407
+remainder__DriverRating,0.007514422593696167
+cat__VehiclePrice_30000 to 39000,0.006781264059891623
+cat__MaritalStatus_Married,0.006248795546991488
+cat__NumberOfSuppliments_more than 5,0.006215823044444458
+cat__Make_Toyota,0.005885534894908033
+cat__VehiclePrice_more than 69000,0.005646655980307142
+cat__MaritalStatus_Single,0.005374127656850783
+remainder__AgeOfPolicyHolder_Clean,0.005089493729125371
+cat__PastNumberOfClaims_1,0.004607745017330249
+cat__AgeOfVehicle_6 years,0.0045773031726413236
+cat__DayOfWeekClaimed_Monday,0.0041542163789367904
+remainder__PolicyNumber,0.004012207358165888
+cat__DayOfWeekClaimed_Thursday,0.003693792334704283
+cat__Sex_Male,0.003487992175561544
+cat__Make_Honda,0.003447562886869977
+cat__DayOfWeekClaimed_Tuesday,0.003219269696420762
+cat__Sex_Female,0.003218787880173982
+cat__DayOfWeekClaimed_Friday,0.0029590665065777145
+cat__NumberOfSuppliments_1 to 2,0.0027447196532806597
+cat__NumberOfSuppliments_3 to 5,0.00243398891569747
+cat__PastNumberOfClaims_more than 4,0.0023543447263450414
+cat__AccidentArea_Urban,0.0021958126463351947
+cat__DayOfWeekClaimed_Wednesday,0.0020330930053894278
+cat__VehiclePrice_less than 20000,0.002021812423991967
+cat__DayOfWeek_Thursday,0.0020066321333652654
+cat__AccidentArea_Rural,0.0019273571910353787
+cat__Make_Mazda,0.0019025913413605808
+cat__DayOfWeek_Saturday,0.0017748795806009272
+remainder__WeekOfMonthClaimed,0.0017562464339759606
+cat__AddressChange_Claim_no change,0.0017267892267457349
+remainder__Deductible,0.0017032548602383922
+remainder__Age,0.0016977387350516388
+remainder__Year,0.0016675061275075302
+cat__DayOfWeek_Monday,0.0016373881965341048
+cat__DayOfWeek_Tuesday,0.0016276143754246047
+cat__MonthClaimed_May,0.0016110460176155742
+cat__DayOfWeek_Sunday,0.0015511593561811886
+cat__Month_Mar,0.001509238927385673
+cat__Make_Chevrolet,0.0015045279583342287
+remainder__RepNumber,0.0014864540254843565
+remainder__WeekOfMonth,0.0014360048203224264
+cat__AddressChange_Claim_2 to 3 years,0.0013755979809515766
+cat__PolicyType_Sport - Collision,0.0012998305939590537
+cat__AgeOfVehicle_5 years,0.0012658284648928277
+cat__MonthClaimed_Mar,0.0012596635910191339
+cat__Make_Accura,0.0011936221756296034
+cat__AgeOfPolicyHolder_51 to 65,0.0011692021571771103
+cat__MonthClaimed_Aug,0.0011514181790062668
+cat__Month_May,0.0011410959982746621
+cat__PolicyType_Utility - All Perils,0.0011188631368641835
+cat__DayOfWeek_Friday,0.0010523353837911295
+cat__MonthClaimed_Jun,0.001051682133634311
+cat__MonthClaimed_Apr,0.0009783868656770838
+cat__DayOfWeek_Wednesday,0.0009771828402124942
+cat__Month_Apr,0.0008856507882058059
+cat__Month_Jun,0.0008755065751220965
+cat__MonthClaimed_Sep,0.0008338815563768437
+cat__Month_Aug,0.0008090055458014737
+cat__MonthClaimed_Oct,0.000797092047864384
+cat__Month_Feb,0.0007938151715939653
+cat__MonthClaimed_Feb,0.0007821674196036969
+cat__Month_Jan,0.000781465806497558
+cat__NumberOfCars_1 vehicle,0.0007725023848129035
+cat__MonthClaimed_Jan,0.000728734273709176
+cat__Month_Oct,0.0007210048782820836
+cat__Make_Ford,0.0007022072047705955
+remainder__NumberOfCars_Clean,0.0006739340283453106
+cat__Month_Sep,0.0006276132438613536
+cat__VehicleCategory_Utility,0.0006011672664137474
+cat__AgeOfPolicyHolder_26 to 30,0.0005422493609423246
+cat__NumberOfCars_3 to 4,0.0005396935606584059
+cat__VehiclePrice_40000 to 59000,0.0005115554364167278
+cat__AgeOfVehicle_4 years,0.00046168141380965204
+cat__MonthClaimed_Jul,0.00045574595232149913
+cat__AgeOfPolicyHolder_over 65,0.00042153263534086885
+cat__AgeOfPolicyHolder_16 to 17,0.00038626598822813995
+cat__MonthClaimed_Nov,0.00035618626020535843
+cat__MonthClaimed_Dec,0.00035459639113747445
+cat__AgeOfPolicyHolder_21 to 25,0.0003333352208016524
+cat__Month_Dec,0.00033179557837585997
+cat__Month_Jul,0.00030878051008176527
+cat__NumberOfCars_2 vehicles,0.0002954269200985599
+cat__AgeOfVehicle_new,0.0002911786978513525
+cat__Make_Saab,0.0002729180920871147
+cat__Days_Policy_Accident_more than 30,0.000267479322540224
+cat__AddressChange_Claim_4 to 8 years,0.00023128564653051426
+cat__Month_Nov,0.0002308699262333771
+cat__AddressChange_Claim_1 year,0.00019786195520557842
+cat__Make_VW,0.00019435927213106173
+cat__Days_Policy_Claim_more than 30,0.00016521232876416455
+cat__DayOfWeekClaimed_Saturday,0.00016169205065256958
+cat__Make_Saturn,0.00015807178357147216
+cat__PoliceReportFiled_Yes,0.00015369818618067232
+cat__PoliceReportFiled_No,0.0001348365357107614
+cat__Make_Mercury,0.0001196521279086873
+cat__Days_Policy_Accident_none,0.00011378938024062689
+cat__Days_Policy_Accident_8 to 15,0.00010812537926395484
+cat__AgeOfVehicle_3 years,9.411278492757809e-05
+cat__AddressChange_Claim_under 6 months,9.116652293261968e-05
+cat__Days_Policy_Claim_15 to 30,8.895901741728905e-05
+cat__WitnessPresent_Yes,8.26506184908143e-05
+cat__WitnessPresent_No,8.149243341595558e-05
+cat__MaritalStatus_Widow,7.182672550680891e-05
+cat__NumberOfCars_5 to 8,6.526821915834125e-05
+cat__MaritalStatus_Divorced,6.423591320330998e-05
+cat__DayOfWeekClaimed_Sunday,5.4496331626115364e-05
+cat__Make_Dodge,4.774858818539323e-05
+cat__PolicyType_Sport - All Perils,4.2688447216293635e-05
+cat__PolicyType_Utility - Collision,4.230342646824182e-05
+cat__PolicyType_Utility - Liability,4.032798401151642e-05
+cat__AgentType_Internal,3.656521982364315e-05
+cat__AgentType_External,3.384584623354508e-05
+cat__VehiclePrice_60000 to 69000,3.106712491016023e-05
+cat__Days_Policy_Claim_8 to 15,2.916986298287392e-05
+cat__Make_BMW,2.801245274959512e-05
+cat__AgeOfVehicle_2 years,2.7008939413841543e-05
+cat__Days_Policy_Accident_15 to 30,2.228265189761064e-05
+cat__Make_Nisson,1.7449030442135573e-05
+cat__Days_Policy_Accident_1 to 7,1.0939182139151947e-05
+cat__AgeOfPolicyHolder_18 to 20,6.524993060833166e-06
+cat__Make_Porche,2.583419411075277e-06
+cat__Make_Jaguar,2.02489374276699e-06
+cat__Make_Ferrari,1.6452786927619417e-06
+cat__Days_Policy_Claim_none,1.186678441175554e-06
+cat__DayOfWeekClaimed_0,8.108268391994044e-07
+cat__MonthClaimed_0,5.38056385226571e-07
+cat__Make_Lexus,1.5223003706918188e-07
+cat__Make_Mecedes,0.0
+cat__PolicyType_Sport - Liability,0.0
+cat__NumberOfCars_more than 8,0.0

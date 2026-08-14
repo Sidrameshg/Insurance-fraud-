@@ -1,0 +1,104 @@
+﻿PHASE 2 - INSURANCE CLAIM FRAUD DETECTION
+=========================================
+
+MODEL DEVELOPMENT
+-----------------
+Dataset:
+fraud_oracle_clean.csv
+
+Train/Test Split:
+Training samples: 12336
+Testing samples: 3084
+
+Training fraud rate: 5.98%
+Testing fraud rate: 6.00%
+
+Preprocessing:
+ColumnTransformer
+Encoded features: 150
+
+CLASSICAL ML MODELS
+-------------------
+Logistic Regression
+KNN
+Naive Bayes
+SVM
+Decision Tree
+Random Forest
+Extra Trees
+Gradient Boosting
+AdaBoost
+
+ADVANCED ML MODELS
+------------------
+XGBoost
+LightGBM
+CatBoost
+
+BEST MODEL
+----------
+CatBoost
+
+Optimized threshold:
+0.50
+
+Precision:
+0.4741
+
+Recall:
+0.9405
+
+F1:
+0.6304
+
+ROC-AUC:
+0.9737
+
+PR-AUC:
+0.7417
+
+EXPLAINABILITY
+--------------
+SHAP TreeExplainer
+
+Global SHAP analysis:
+Completed
+
+Individual claim SHAP:
+Completed
+
+API INTEGRATION
+---------------
+FastAPI
+GET /
+POST /predict
+
+Prediction:
+CatBoost
+
+Threshold:
+0.50
+
+SHAP explanation:
+Integrated into /predict
+
+API TESTS
+---------
+Legitimate claim:
+Probability: 0.53%
+Prediction: LEGITIMATE
+Status: 200
+
+Known fraud claim:
+Probability: 87.62%
+Prediction: FRAUD
+Status: 200
+
+MODEL ARTIFACTS
+---------------
+models/phase2/catboost_fraud_model.cbm
+models/phase2/catboost_threshold.pkl
+
+PHASE 2 STATUS
+--------------
+COMPLETED

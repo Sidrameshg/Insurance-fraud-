@@ -1,0 +1,48 @@
+{
+  "model": "RandomForestClassifier",
+  "model_type": "nonlinear_baseline",
+  "n_estimators": 300,
+  "class_weight": "balanced_subsample",
+  "min_samples_leaf": 2,
+  "train_size": 10794,
+  "validation_size": 2313,
+  "test_size": 2313,
+  "numeric_feature_count": 9,
+  "categorical_feature_count": 24,
+  "validation": {
+    "accuracy": 0.9407695633376567,
+    "precision": 0.6666666666666666,
+    "recall": 0.02877697841726619,
+    "f1": 0.05517241379310345,
+    "roc_auc": 0.8521638990555487,
+    "pr_auc": 0.2617248507520086,
+    "confusion_matrix": [
+      [
+        2172,
+        2
+      ],
+      [
+        135,
+        4
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 0.940337224383917,
+    "precision": 0.5,
+    "recall": 0.036231884057971016,
+    "f1": 0.06756756756756757,
+    "roc_auc": 0.816528402465434,
+    "pr_auc": 0.23383249906254794,
+    "confusion_matrix": [
+      [
+        2170,
+        5
+      ],
+      [
+        133,
+        5
+      ]
+    ]
+  }
+}

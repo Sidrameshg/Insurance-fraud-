@@ -1,0 +1,36 @@
+{
+  "phase": "phase3",
+  "comparison_metric": "test_f1_at_validation_selected_threshold",
+  "models": [
+    {
+      "model": "HistGradientBoosting",
+      "test_roc_auc": 0.8379510244877562,
+      "test_pr_auc": 0.2606465995343263,
+      "test_precision": 0.25,
+      "test_recall": 0.43478260869565216,
+      "test_f1_default": 0.06993006993006994,
+      "test_f1_threshold": 0.31746031746031744,
+      "selected_threshold": 0.15
+    },
+    {
+      "model": "Random Forest",
+      "test_roc_auc": 0.816528402465434,
+      "test_pr_auc": 0.23383249906254794,
+      "test_precision": 0.20735785953177258,
+      "test_recall": 0.4492753623188406,
+      "test_f1_default": 0.06756756756756757,
+      "test_f1_threshold": 0.2837528604118993,
+      "selected_threshold": 0.25
+    },
+    {
+      "model": "Logistic Regression",
+      "test_roc_auc": 0.7761152756954857,
+      "test_pr_auc": 0.13451061768147346,
+      "test_precision": 0.12095032397408208,
+      "test_recall": 0.8115942028985508,
+      "test_f1_default": 0.21052631578947367,
+      "selected_threshold": 0.7
+    }
+  ],
+  "current_best_model": "HistGradientBoosting"
+}

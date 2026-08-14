@@ -1,0 +1,29 @@
+{
+  "document_type": "invoice",
+  "vendor": "ABC Motors",
+  "invoice_number": "INV-2026-001",
+  "invoice_date": "12/08/2026",
+  "vehicle": "Honda City",
+  "policy_number": "POL123456",
+  "items": [
+    {
+      "description": "Front Bumper",
+      "amount": 15000.0
+    },
+    {
+      "description": "Headlight",
+      "amount": 12000.0
+    },
+    {
+      "description": "Labour",
+      "amount": 7000.0
+    }
+  ],
+  "total_amount": 34000.0,
+  "validation": {
+    "calculated_items_total": 34000.0,
+    "invoice_total": 34000.0,
+    "difference": 0.0,
+    "total_matches": true
+  }
+}

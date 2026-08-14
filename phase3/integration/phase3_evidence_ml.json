@@ -1,0 +1,568 @@
+{
+  "phase": "phase3",
+  "claim_document": {
+    "ocr": {
+      "document": {
+        "type": "insurance_claim",
+        "source": "C:\\Users\\user\\Desktop\\asd\\insurance-claim-fraud-detection\\Insurance-Fraud-AI\\phase3\\ocr\\test_document.png"
+      },
+      "text": "INSURANCE CLAIM DOCUMENT Policy Number: POL123456 Claim Number: CLM001 Vehicle: Honda City Accident Date: 12/08/2026 Repair Amount: 85000 Repair Shop: ABC Motors Claimant: Raj Kumar",
+      "word_count": 25,
+      "words": [
+        {
+          "text": "INSURANCE",
+          "confidence": 95.0,
+          "x": 73,
+          "y": 59,
+          "width": 245,
+          "height": 30
+        },
+        {
+          "text": "CLAIM",
+          "confidence": 94.0,
+          "x": 333,
+          "y": 59,
+          "width": 128,
+          "height": 30
+        },
+        {
+          "text": "DOCUMENT",
+          "confidence": 95.0,
+          "x": 479,
+          "y": 59,
+          "width": 239,
+          "height": 30
+        },
+        {
+          "text": "Policy",
+          "confidence": 96.0,
+          "x": 82,
+          "y": 146,
+          "width": 83,
+          "height": 29
+        },
+        {
+          "text": "Number:",
+          "confidence": 89.0,
+          "x": 176,
+          "y": 146,
+          "width": 118,
+          "height": 23
+        },
+        {
+          "text": "POL123456",
+          "confidence": 89.0,
+          "x": 308,
+          "y": 146,
+          "width": 167,
+          "height": 23
+        },
+        {
+          "text": "Claim",
+          "confidence": 96.0,
+          "x": 82,
+          "y": 216,
+          "width": 78,
+          "height": 23
+        },
+        {
+          "text": "Number:",
+          "confidence": 93.0,
+          "x": 173,
+          "y": 216,
+          "width": 117,
+          "height": 23
+        },
+        {
+          "text": "CLM001",
+          "confidence": 72.0,
+          "x": 304,
+          "y": 216,
+          "width": 113,
+          "height": 23
+        },
+        {
+          "text": "Vehicle:",
+          "confidence": 95.0,
+          "x": 80,
+          "y": 286,
+          "width": 109,
+          "height": 23
+        },
+        {
+          "text": "Honda",
+          "confidence": 96.0,
+          "x": 203,
+          "y": 286,
+          "width": 90,
+          "height": 23
+        },
+        {
+          "text": "City",
+          "confidence": 96.0,
+          "x": 306,
+          "y": 286,
+          "width": 53,
+          "height": 29
+        },
+        {
+          "text": "Accident",
+          "confidence": 96.0,
+          "x": 80,
+          "y": 356,
+          "width": 123,
+          "height": 23
+        },
+        {
+          "text": "Date:",
+          "confidence": 96.0,
+          "x": 214,
+          "y": 356,
+          "width": 71,
+          "height": 23
+        },
+        {
+          "text": "12/08/2026",
+          "confidence": 96.0,
+          "x": 300,
+          "y": 356,
+          "width": 155,
+          "height": 23
+        },
+        {
+          "text": "Repair",
+          "confidence": 96.0,
+          "x": 82,
+          "y": 426,
+          "width": 93,
+          "height": 29
+        },
+        {
+          "text": "Amount:",
+          "confidence": 96.0,
+          "x": 181,
+          "y": 426,
+          "width": 117,
+          "height": 23
+        },
+        {
+          "text": "85000",
+          "confidence": 96.0,
+          "x": 310,
+          "y": 426,
+          "width": 87,
+          "height": 23
+        },
+        {
+          "text": "Repair",
+          "confidence": 95.0,
+          "x": 82,
+          "y": 496,
+          "width": 93,
+          "height": 29
+        },
+        {
+          "text": "Shop:",
+          "confidence": 96.0,
+          "x": 184,
+          "y": 496,
+          "width": 80,
+          "height": 29
+        },
+        {
+          "text": "ABC",
+          "confidence": 96.0,
+          "x": 274,
+          "y": 496,
+          "width": 65,
+          "height": 23
+        },
+        {
+          "text": "Motors",
+          "confidence": 96.0,
+          "x": 351,
+          "y": 496,
+          "width": 94,
+          "height": 23
+        },
+        {
+          "text": "Claimant:",
+          "confidence": 95.0,
+          "x": 82,
+          "y": 566,
+          "width": 130,
+          "height": 23
+        },
+        {
+          "text": "Raj",
+          "confidence": 96.0,
+          "x": 226,
+          "y": 566,
+          "width": 44,
+          "height": 29
+        },
+        {
+          "text": "Kumar",
+          "confidence": 96.0,
+          "x": 283,
+          "y": 566,
+          "width": 93,
+          "height": 23
+        }
+      ]
+    },
+    "document_understanding": {
+      "document_type": "insurance_claim",
+      "confidence": 0.812,
+      "winning_score": 13.0,
+      "second_best_score": 3.0,
+      "score_margin": 10.0,
+      "scores": {
+        "invoice": 3.0,
+        "insurance_claim": 13.0,
+        "repair_estimate": 0.0
+      }
+    }
+  },
+  "invoice": {
+    "document_processing": {
+      "ocr": {
+        "document": {
+          "type": "insurance_claim",
+          "source": "C:\\Users\\user\\Desktop\\asd\\insurance-claim-fraud-detection\\Insurance-Fraud-AI\\phase3\\invoice\\test_invoice.png"
+        },
+        "text": "VEHICLE REPAIR INVOICE Repair Shop: ABC Motors Invoice Number: INV-2026-001 Invoice Date: 12/08/2026 Vehicle: Honda City Policy Number: POL123456 Front Bumper 15000 Headlight 12000 Labour 7000 Total Amount 34000",
+        "word_count": 29,
+        "words": [
+          {
+            "text": "VEHICLE",
+            "confidence": 96.0,
+            "x": 70,
+            "y": 59,
+            "width": 180,
+            "height": 30
+          },
+          {
+            "text": "REPAIR",
+            "confidence": 96.0,
+            "x": 267,
+            "y": 59,
+            "width": 152,
+            "height": 30
+          },
+          {
+            "text": "INVOICE",
+            "confidence": 95.0,
+            "x": 434,
+            "y": 59,
+            "width": 168,
+            "height": 30
+          },
+          {
+            "text": "Repair",
+            "confidence": 96.0,
+            "x": 82,
+            "y": 146,
+            "width": 86,
+            "height": 28
+          },
+          {
+            "text": "Shop:",
+            "confidence": 96.0,
+            "x": 178,
+            "y": 146,
+            "width": 75,
+            "height": 28
+          },
+          {
+            "text": "ABC",
+            "confidence": 95.0,
+            "x": 262,
+            "y": 146,
+            "width": 60,
+            "height": 22
+          },
+          {
+            "text": "Motors",
+            "confidence": 96.0,
+            "x": 334,
+            "y": 146,
+            "width": 89,
+            "height": 22
+          },
+          {
+            "text": "Invoice",
+            "confidence": 96.0,
+            "x": 83,
+            "y": 206,
+            "width": 91,
+            "height": 22
+          },
+          {
+            "text": "Number:",
+            "confidence": 93.0,
+            "x": 185,
+            "y": 206,
+            "width": 111,
+            "height": 22
+          },
+          {
+            "text": "INV-2026-001",
+            "confidence": 90.0,
+            "x": 310,
+            "y": 206,
+            "width": 176,
+            "height": 22
+          },
+          {
+            "text": "Invoice",
+            "confidence": 96.0,
+            "x": 83,
+            "y": 266,
+            "width": 91,
+            "height": 22
+          },
+          {
+            "text": "Date:",
+            "confidence": 95.0,
+            "x": 185,
+            "y": 266,
+            "width": 68,
+            "height": 22
+          },
+          {
+            "text": "12/08/2026",
+            "confidence": 95.0,
+            "x": 266,
+            "y": 266,
+            "width": 146,
+            "height": 22
+          },
+          {
+            "text": "Vehicle:",
+            "confidence": 96.0,
+            "x": 80,
+            "y": 326,
+            "width": 103,
+            "height": 22
+          },
+          {
+            "text": "Honda",
+            "confidence": 96.0,
+            "x": 195,
+            "y": 326,
+            "width": 85,
+            "height": 22
+          },
+          {
+            "text": "City",
+            "confidence": 96.0,
+            "x": 292,
+            "y": 326,
+            "width": 50,
+            "height": 28
+          },
+          {
+            "text": "Policy",
+            "confidence": 95.0,
+            "x": 82,
+            "y": 386,
+            "width": 78,
+            "height": 28
+          },
+          {
+            "text": "Number:",
+            "confidence": 93.0,
+            "x": 170,
+            "y": 386,
+            "width": 111,
+            "height": 22
+          },
+          {
+            "text": "POL123456",
+            "confidence": 92.0,
+            "x": 294,
+            "y": 386,
+            "width": 156,
+            "height": 22
+          },
+          {
+            "text": "Front",
+            "confidence": 96.0,
+            "x": 82,
+            "y": 506,
+            "width": 68,
+            "height": 22
+          },
+          {
+            "text": "Bumper",
+            "confidence": 96.0,
+            "x": 160,
+            "y": 506,
+            "width": 103,
+            "height": 28
+          },
+          {
+            "text": "15000",
+            "confidence": 96.0,
+            "x": 333,
+            "y": 506,
+            "width": 79,
+            "height": 22
+          },
+          {
+            "text": "Headlight",
+            "confidence": 96.0,
+            "x": 82,
+            "y": 561,
+            "width": 124,
+            "height": 38
+          },
+          {
+            "text": "12000",
+            "confidence": 96.0,
+            "x": 301,
+            "y": 566,
+            "width": 79,
+            "height": 22
+          },
+          {
+            "text": "Labour",
+            "confidence": 96.0,
+            "x": 82,
+            "y": 626,
+            "width": 91,
+            "height": 22
+          },
+          {
+            "text": "7000",
+            "confidence": 96.0,
+            "x": 299,
+            "y": 626,
+            "width": 64,
+            "height": 22
+          },
+          {
+            "text": "Total",
+            "confidence": 96.0,
+            "x": 81,
+            "y": 746,
+            "width": 61,
+            "height": 22
+          },
+          {
+            "text": "Amount",
+            "confidence": 96.0,
+            "x": 150,
+            "y": 746,
+            "width": 103,
+            "height": 22
+          },
+          {
+            "text": "34000",
+            "confidence": 96.0,
+            "x": 321,
+            "y": 746,
+            "width": 81,
+            "height": 22
+          }
+        ]
+      },
+      "document_understanding": {
+        "document_type": "invoice",
+        "confidence": 0.929,
+        "winning_score": 13.0,
+        "second_best_score": 1.0,
+        "score_margin": 12.0,
+        "scores": {
+          "invoice": 13.0,
+          "insurance_claim": 1.0,
+          "repair_estimate": 0.0
+        }
+      }
+    },
+    "extraction": {
+      "document_type": "invoice",
+      "vendor": "ABC Motors",
+      "invoice_number": "INV-2026-001",
+      "invoice_date": "12/08/2026",
+      "vehicle": "Honda City",
+      "policy_number": "POL123456",
+      "items": [
+        {
+          "description": "Front Bumper",
+          "amount": 15000.0
+        },
+        {
+          "description": "Headlight",
+          "amount": 12000.0
+        },
+        {
+          "description": "Labour",
+          "amount": 7000.0
+        }
+      ],
+      "total_amount": 34000.0,
+      "validation": {
+        "calculated_items_total": 34000.0,
+        "invoice_total": 34000.0,
+        "difference": 0.0,
+        "total_matches": true
+      }
+    }
+  },
+  "signature_verification": {
+    "reference": "C:\\Users\\user\\Desktop\\asd\\insurance-claim-fraud-detection\\Insurance-Fraud-AI\\phase3\\signature\\signature_reference.png",
+    "claim": "C:\\Users\\user\\Desktop\\asd\\insurance-claim-fraud-detection\\Insurance-Fraud-AI\\phase3\\signature\\signature_claim.png",
+    "similarity_score": 1.0,
+    "threshold": 0.8,
+    "result": "MATCH"
+  },
+  "damage_detection": {
+    "reference_image": "C:\\Users\\user\\Desktop\\asd\\insurance-claim-fraud-detection\\Insurance-Fraud-AI\\phase3\\damage\\vehicle_reference.png",
+    "claim_image": "C:\\Users\\user\\Desktop\\asd\\insurance-claim-fraud-detection\\Insurance-Fraud-AI\\phase3\\damage\\vehicle_damaged.png",
+    "difference_threshold": 30.0,
+    "damaged_pixels": 5331,
+    "total_pixels": 150000,
+    "damage_ratio": 0.0355,
+    "mean_pixel_difference": 3.3271,
+    "result": "DAMAGE_DETECTED"
+  },
+  "damage_ml_classification": {
+    "model": "MobileNetV2",
+    "model_type": "fine_tuned",
+    "image": "C:\\Users\\user\\Desktop\\asd\\insurance-claim-fraud-detection\\Insurance-Fraud-AI\\phase3\\damage\\vehicle_damaged.png",
+    "prediction": {
+      "class": "F_Normal",
+      "confidence": 0.4393,
+      "front_or_rear": "front",
+      "damage_type": "normal",
+      "is_damage": false
+    },
+    "confidence_status": "LOW_CONFIDENCE",
+    "consistency": "ML_UNCERTAIN",
+    "features": {
+      "damage_ml_class": "F_Normal",
+      "damage_ml_confidence": 0.4393,
+      "damage_ml_front": 1,
+      "damage_ml_rear": 0,
+      "damage_ml_is_damage": 0,
+      "damage_ml_is_breakage": 0,
+      "damage_ml_is_crushed": 0,
+      "damage_ml_is_normal": 1
+    }
+  },
+  "summary": {
+    "claim_document_type": "insurance_claim",
+    "invoice_document_type": "invoice",
+    "invoice_total_valid": true,
+    "signature_result": "MATCH",
+    "damage_result": "DAMAGE_DETECTED",
+    "damage_ml_class": "F_Normal",
+    "damage_ml_confidence": 0.4393,
+    "damage_ml_confidence_status": "LOW_CONFIDENCE",
+    "damage_ml_type": "normal",
+    "damage_ml_is_damage": false,
+    "damage_ml_consistency": "ML_UNCERTAIN"
+  }
+}

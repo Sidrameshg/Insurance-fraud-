@@ -1,0 +1,242 @@
+{
+  "document": {
+    "type": "insurance_claim",
+    "source": "phase3\\invoice\\test_invoice.png"
+  },
+  "text": "VEHICLE REPAIR INVOICE Repair Shop: ABC Motors Invoice Number: INV-2026-001 Invoice Date: 12/08/2026 Vehicle: Honda City Policy Number: POL123456 Front Bumper 15000 Headlight 12000 Labour 7000 Total Amount 34000",
+  "word_count": 29,
+  "words": [
+    {
+      "text": "VEHICLE",
+      "confidence": 96.0,
+      "x": 70,
+      "y": 59,
+      "width": 180,
+      "height": 30
+    },
+    {
+      "text": "REPAIR",
+      "confidence": 96.0,
+      "x": 267,
+      "y": 59,
+      "width": 152,
+      "height": 30
+    },
+    {
+      "text": "INVOICE",
+      "confidence": 95.0,
+      "x": 434,
+      "y": 59,
+      "width": 168,
+      "height": 30
+    },
+    {
+      "text": "Repair",
+      "confidence": 96.0,
+      "x": 82,
+      "y": 146,
+      "width": 86,
+      "height": 28
+    },
+    {
+      "text": "Shop:",
+      "confidence": 96.0,
+      "x": 178,
+      "y": 146,
+      "width": 75,
+      "height": 28
+    },
+    {
+      "text": "ABC",
+      "confidence": 95.0,
+      "x": 262,
+      "y": 146,
+      "width": 60,
+      "height": 22
+    },
+    {
+      "text": "Motors",
+      "confidence": 96.0,
+      "x": 334,
+      "y": 146,
+      "width": 89,
+      "height": 22
+    },
+    {
+      "text": "Invoice",
+      "confidence": 96.0,
+      "x": 83,
+      "y": 206,
+      "width": 91,
+      "height": 22
+    },
+    {
+      "text": "Number:",
+      "confidence": 93.0,
+      "x": 185,
+      "y": 206,
+      "width": 111,
+      "height": 22
+    },
+    {
+      "text": "INV-2026-001",
+      "confidence": 90.0,
+      "x": 310,
+      "y": 206,
+      "width": 176,
+      "height": 22
+    },
+    {
+      "text": "Invoice",
+      "confidence": 96.0,
+      "x": 83,
+      "y": 266,
+      "width": 91,
+      "height": 22
+    },
+    {
+      "text": "Date:",
+      "confidence": 95.0,
+      "x": 185,
+      "y": 266,
+      "width": 68,
+      "height": 22
+    },
+    {
+      "text": "12/08/2026",
+      "confidence": 95.0,
+      "x": 266,
+      "y": 266,
+      "width": 146,
+      "height": 22
+    },
+    {
+      "text": "Vehicle:",
+      "confidence": 96.0,
+      "x": 80,
+      "y": 326,
+      "width": 103,
+      "height": 22
+    },
+    {
+      "text": "Honda",
+      "confidence": 96.0,
+      "x": 195,
+      "y": 326,
+      "width": 85,
+      "height": 22
+    },
+    {
+      "text": "City",
+      "confidence": 96.0,
+      "x": 292,
+      "y": 326,
+      "width": 50,
+      "height": 28
+    },
+    {
+      "text": "Policy",
+      "confidence": 95.0,
+      "x": 82,
+      "y": 386,
+      "width": 78,
+      "height": 28
+    },
+    {
+      "text": "Number:",
+      "confidence": 93.0,
+      "x": 170,
+      "y": 386,
+      "width": 111,
+      "height": 22
+    },
+    {
+      "text": "POL123456",
+      "confidence": 92.0,
+      "x": 294,
+      "y": 386,
+      "width": 156,
+      "height": 22
+    },
+    {
+      "text": "Front",
+      "confidence": 96.0,
+      "x": 82,
+      "y": 506,
+      "width": 68,
+      "height": 22
+    },
+    {
+      "text": "Bumper",
+      "confidence": 96.0,
+      "x": 160,
+      "y": 506,
+      "width": 103,
+      "height": 28
+    },
+    {
+      "text": "15000",
+      "confidence": 96.0,
+      "x": 333,
+      "y": 506,
+      "width": 79,
+      "height": 22
+    },
+    {
+      "text": "Headlight",
+      "confidence": 96.0,
+      "x": 82,
+      "y": 561,
+      "width": 124,
+      "height": 38
+    },
+    {
+      "text": "12000",
+      "confidence": 96.0,
+      "x": 301,
+      "y": 566,
+      "width": 79,
+      "height": 22
+    },
+    {
+      "text": "Labour",
+      "confidence": 96.0,
+      "x": 82,
+      "y": 626,
+      "width": 91,
+      "height": 22
+    },
+    {
+      "text": "7000",
+      "confidence": 96.0,
+      "x": 299,
+      "y": 626,
+      "width": 64,
+      "height": 22
+    },
+    {
+      "text": "Total",
+      "confidence": 96.0,
+      "x": 81,
+      "y": 746,
+      "width": 61,
+      "height": 22
+    },
+    {
+      "text": "Amount",
+      "confidence": 96.0,
+      "x": 150,
+      "y": 746,
+      "width": 103,
+      "height": 22
+    },
+    {
+      "text": "34000",
+      "confidence": 96.0,
+      "x": 321,
+      "y": 746,
+      "width": 81,
+      "height": 22
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+﻿venv/
+.venv/
+__pycache__/
+*.pyc
+.git/
+.gitignore
+.vscode/
+.idea/
+notebooks/
+tests/
+*.ipynb
+phase5/**/__pycache__/

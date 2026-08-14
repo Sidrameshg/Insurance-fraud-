@@ -1,0 +1,34 @@
+{
+  "phase": "phase4",
+  "stage": "llm_reasoning",
+  "source": "C:\\Users\\user\\Desktop\\asd\\insurance-claim-fraud-detection\\Insurance-Fraud-AI\\phase3\\integration\\phase3_risk_fusion_dynamic.json",
+  "reasoning": {
+    "engine": "Phase4 Investigation Reasoning",
+    "llm": {
+      "provider": "mock",
+      "model": "mock-model",
+      "response": "Phase 4 LLM mock response. The LLM interface is working and ready for a real reasoning model."
+    },
+    "input_evidence": {
+      "phase": "phase3",
+      "fraud_model": {
+        "model": "HistGradientBoosting",
+        "probability": 0.12000321451163828,
+        "threshold": 0.15,
+        "prediction": "NON_FRAUD"
+      },
+      "evidence": {
+        "feature_count": 24,
+        "score": 50.0,
+        "reasons": [
+          "Large invoice-to-claim amount mismatch",
+          "Traditional damage detector found damage",
+          "Traditional and ML damage detectors disagree"
+        ]
+      },
+      "final_risk": {
+        "level": "REVIEW_REQUIRED"
+      }
+    }
+  }
+}

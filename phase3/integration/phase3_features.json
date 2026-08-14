@@ -1,0 +1,22 @@
+{
+  "phase": "phase3",
+  "feature_count": 16,
+  "features": {
+    "document_type_insurance_claim": 1,
+    "document_confidence": 0.812,
+    "document_score_margin": 10.0,
+    "invoice_document_type": "invoice",
+    "invoice_document_confidence": 0.929,
+    "invoice_total": 34000.0,
+    "invoice_items_total": 34000.0,
+    "invoice_total_valid": 1,
+    "claim_repair_amount": 85000.0,
+    "claim_invoice_amount_difference": 51000.0,
+    "invoice_to_claim_amount_ratio": 0.4,
+    "signature_similarity": 1.0,
+    "signature_match": 1,
+    "damage_ratio": 0.0355,
+    "damage_detected": 1,
+    "damage_mean_pixel_difference": 3.3271
+  }
+}

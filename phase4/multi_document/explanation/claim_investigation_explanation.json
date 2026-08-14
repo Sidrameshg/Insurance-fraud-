@@ -1,0 +1,48 @@
+{
+  "engine": "Phase 4 Investigation Explanation",
+  "source": "Multi-Document Consistency Analysis",
+  "contradiction_count": 2,
+  "contradictions": [
+    {
+      "type": "financial_mismatch",
+      "claim_repair_amount": 85000.0,
+      "invoice_amount": 34000.0,
+      "difference": 51000.0,
+      "invoice_to_claim_ratio": 0.4,
+      "description": "Claimed repair amount and invoice amount differ."
+    },
+    {
+      "type": "damage_model_disagreement",
+      "traditional_damage": 1,
+      "ml_damage": 0,
+      "ml_class": "F_Normal",
+      "ml_confidence": 0.4393,
+      "description": "Traditional and ML damage analysis disagree."
+    }
+  ],
+  "consistent_evidence": [
+    "Invoice total validation passed.",
+    {
+      "type": "signature",
+      "similarity": 1.0,
+      "description": "Signature verification returned MATCH."
+    }
+  ],
+  "observations": [
+    "Traditional damage detector found damage.",
+    "ML damage classifier classified the vehicle as normal (F_Normal, confidence=0.4393).",
+    {
+      "damage_ratio": 0.0355,
+      "damage_mean_pixel_difference": 3.3271
+    }
+  ],
+  "investigation_interpretation": [
+    "The claimed repair amount (85000.0) differs from the invoice amount (34000.0) by 51000.0.",
+    "Traditional damage analysis returned 1, while the ML classifier returned 0 with class F_Normal and confidence 0.4393."
+  ],
+  "recommended_actions": [
+    "Review and verify the claimed repair amount against the submitted invoice.",
+    "Review the vehicle damage evidence manually because the traditional and ML analyses disagree."
+  ],
+  "grounding_rule": "This explanation uses only the evidence contained in the Phase 4 multi-document consistency analysis. No additional claim facts are invented."
+}

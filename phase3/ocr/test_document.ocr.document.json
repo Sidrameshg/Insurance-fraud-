@@ -1,0 +1,12 @@
+{
+  "document_type": "insurance_claim",
+  "confidence": 0.812,
+  "winning_score": 13.0,
+  "second_best_score": 3.0,
+  "score_margin": 10.0,
+  "scores": {
+    "invoice": 3.0,
+    "insurance_claim": 13.0,
+    "repair_estimate": 0.0
+  }
+}

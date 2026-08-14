@@ -1,0 +1,33 @@
+{
+  "phase": "phase3",
+  "feature_count": 24,
+  "base_feature_count": 16,
+  "ml_damage_feature_count": 8,
+  "vehicle_image": "phase3\\ml\\damage\\dataset\\test\\F_Breakage\\test_00000.jpg",
+  "features": {
+    "document_type_insurance_claim": 1,
+    "document_confidence": 0.812,
+    "document_score_margin": 10.0,
+    "invoice_document_type": "invoice",
+    "invoice_document_confidence": 0.929,
+    "invoice_total": 34000.0,
+    "invoice_items_total": 34000.0,
+    "invoice_total_valid": 1,
+    "claim_repair_amount": 85000.0,
+    "claim_invoice_amount_difference": 51000.0,
+    "invoice_to_claim_amount_ratio": 0.4,
+    "signature_similarity": 1.0,
+    "signature_match": 1,
+    "damage_ratio": 0.0355,
+    "damage_detected": 1,
+    "damage_mean_pixel_difference": 3.3271,
+    "damage_ml_class": "F_Breakage",
+    "damage_ml_confidence": 0.969356,
+    "damage_ml_front": 1,
+    "damage_ml_rear": 0,
+    "damage_ml_is_damage": 1,
+    "damage_ml_is_breakage": 1,
+    "damage_ml_is_crushed": 0,
+    "damage_ml_is_normal": 0
+  }
+}

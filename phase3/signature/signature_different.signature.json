@@ -1,0 +1,7 @@
+{
+  "reference": ".\\phase3\\signature\\signature_reference.png",
+  "claim": ".\\phase3\\signature\\signature_different.png",
+  "similarity_score": 0.4422,
+  "threshold": 0.8,
+  "result": "MISMATCH"
+}

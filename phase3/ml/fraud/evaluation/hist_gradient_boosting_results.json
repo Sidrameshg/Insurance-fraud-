@@ -1,0 +1,50 @@
+{
+  "model": "HistGradientBoostingClassifier",
+  "model_type": "nonlinear_boosting",
+  "max_iter": 300,
+  "learning_rate": 0.05,
+  "max_leaf_nodes": 31,
+  "min_samples_leaf": 20,
+  "l2_regularization": 1.0,
+  "train_size": 10794,
+  "validation_size": 2313,
+  "test_size": 2313,
+  "numeric_feature_count": 9,
+  "categorical_feature_count": 24,
+  "validation": {
+    "accuracy": 0.9424989191526156,
+    "precision": 1.0,
+    "recall": 0.04316546762589928,
+    "f1": 0.08275862068965517,
+    "roc_auc": 0.850456341458572,
+    "pr_auc": 0.2824040159212719,
+    "confusion_matrix": [
+      [
+        2174,
+        0
+      ],
+      [
+        133,
+        6
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 0.9424989191526156,
+    "precision": 1.0,
+    "recall": 0.036231884057971016,
+    "f1": 0.06993006993006994,
+    "roc_auc": 0.8379510244877562,
+    "pr_auc": 0.2606465995343263,
+    "confusion_matrix": [
+      [
+        2175,
+        0
+      ],
+      [
+        133,
+        5
+      ]
+    ]
+  }
+}

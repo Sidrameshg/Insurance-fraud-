@@ -1,0 +1,20 @@
+{
+  "phase": "phase3",
+  "fraud_model": {
+    "model": "HistGradientBoosting",
+    "probability": 0.120003,
+    "threshold": 0.15,
+    "prediction": "NON_FRAUD"
+  },
+  "evidence": {
+    "score": 50.0,
+    "reasons": [
+      "Large invoice-to-claim amount mismatch",
+      "Traditional damage detector found damage",
+      "Traditional and ML damage detectors disagree"
+    ]
+  },
+  "final_risk": {
+    "level": "REVIEW_REQUIRED"
+  }
+}

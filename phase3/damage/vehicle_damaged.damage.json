@@ -1,0 +1,10 @@
+{
+  "reference_image": ".\\phase3\\damage\\vehicle_reference.png",
+  "claim_image": ".\\phase3\\damage\\vehicle_damaged.png",
+  "difference_threshold": 30.0,
+  "damaged_pixels": 5331,
+  "total_pixels": 150000,
+  "damage_ratio": 0.0355,
+  "mean_pixel_difference": 3.3271,
+  "result": "DAMAGE_DETECTED"
+}

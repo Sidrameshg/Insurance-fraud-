@@ -1,0 +1,52 @@
+﻿# Python
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python caches
+.pytest_cache/
+.mypy_cache/
+
+# Logs
+*.log
+
+# Generated Phase outputs
+phase3/output/
+phase4/*/output/
+phase5/output/
+
+# Generated caches
+phase3/**/__pycache__/
+phase4/**/__pycache__/
+phase5/**/__pycache__/
+
+# Model artifacts
+# Keep lightweight model files only if required for local inference.
+# Large trained artifacts should normally be stored outside Git.
+models/**/*.pkl
+models/**/*.cbm
+
+# Keep model documentation/results
+!models/**/*.csv
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db

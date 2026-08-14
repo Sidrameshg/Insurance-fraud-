@@ -1,0 +1,21 @@
+{
+  "model": "MobileNetV2",
+  "model_type": "fine_tuned",
+  "image": "C:\\Users\\user\\Desktop\\asd\\insurance-claim-fraud-detection\\Insurance-Fraud-AI\\phase3\\ml\\damage\\dataset\\test\\R_Crushed\\test_00002.jpg",
+  "predicted_class": "R_Breakage",
+  "confidence": 0.839998,
+  "front_or_rear": "rear",
+  "damage_type": "breakage",
+  "is_damage": true,
+  "is_breakage": true,
+  "is_crushed": false,
+  "is_normal": false,
+  "probabilities": {
+    "F_Breakage": 0.000415,
+    "F_Crushed": 0.000147,
+    "F_Normal": 4.3e-05,
+    "R_Breakage": 0.839998,
+    "R_Crushed": 0.157637,
+    "R_Normal": 0.00176
+  }
+}

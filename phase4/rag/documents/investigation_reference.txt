@@ -1,0 +1,38 @@
+﻿DOCUMENT TITLE: Insurance Claim Investigation Reference
+
+PURPOSE:
+This document is a demonstration knowledge-base document for the
+Insurance-Fraud-AI Phase 4 RAG system.
+
+INVESTIGATION PRINCIPLES:
+
+1. A fraud model prediction should be treated as a risk signal,
+   not as definitive proof of fraud.
+
+2. Investigators should review multiple evidence sources before
+   making a final decision.
+
+3. Differences between claimed repair amounts and invoice amounts
+   should be investigated when the difference is significant.
+
+4. Vehicle damage predictions should be interpreted together with
+   other claim evidence.
+
+5. Conflicting evidence from different analysis methods should be
+   flagged for human review.
+
+6. Documents belonging to the same claim should be compared for
+   consistency.
+
+7. Investigation explanations should identify the evidence supporting
+   a conclusion and should clearly state uncertainty.
+
+8. The investigation system should not invent facts that are absent
+   from the supplied claim evidence.
+
+REVIEW PRINCIPLE:
+
+A claim should be escalated for investigation when multiple
+independent evidence signals indicate inconsistency or elevated risk.
+
+END OF DOCUMENT.

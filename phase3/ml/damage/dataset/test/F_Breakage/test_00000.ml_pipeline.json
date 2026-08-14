@@ -1,0 +1,22 @@
+{
+  "image": "phase3\\ml\\damage\\dataset\\test\\F_Breakage\\test_00000.jpg",
+  "model": "MobileNetV2",
+  "model_type": "fine_tuned",
+  "prediction": {
+    "class": "F_Breakage",
+    "confidence": 0.969356,
+    "front_or_rear": "front",
+    "damage_type": "breakage",
+    "is_damage": true
+  },
+  "ml_features": {
+    "damage_ml_class": "F_Breakage",
+    "damage_ml_confidence": 0.969356,
+    "damage_ml_front": 1,
+    "damage_ml_rear": 0,
+    "damage_ml_is_damage": 1,
+    "damage_ml_is_breakage": 1,
+    "damage_ml_is_crushed": 0,
+    "damage_ml_is_normal": 0
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "image": "phase3\\damage\\vehicle_damaged.png",
+  "model": "MobileNetV2",
+  "model_type": "fine_tuned",
+  "prediction": {
+    "class": "F_Normal",
+    "confidence": 0.4393,
+    "front_or_rear": "front",
+    "damage_type": "normal",
+    "is_damage": false
+  },
+  "ml_features": {
+    "damage_ml_class": "F_Normal",
+    "damage_ml_confidence": 0.4393,
+    "damage_ml_front": 1,
+    "damage_ml_rear": 0,
+    "damage_ml_is_damage": 0,
+    "damage_ml_is_breakage": 0,
+    "damage_ml_is_crushed": 0,
+    "damage_ml_is_normal": 1
+  }
+}

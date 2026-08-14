@@ -1,0 +1,7 @@
+{
+  "reference": ".\\phase3\\signature\\signature_reference.png",
+  "claim": ".\\phase3\\signature\\signature_claim.png",
+  "similarity_score": 1.0,
+  "threshold": 0.8,
+  "result": "MATCH"
+}
