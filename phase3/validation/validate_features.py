@@ -9,20 +9,23 @@ FEATURE_FILE = (
     ROOT
     / "phase3"
     / "integration"
-    / "phase3_features.json"
+    / "phase3_features_final.json"
 )
 
 
 def check(name, actual, expected):
 
     if isinstance(expected, float):
+
         passed = math.isclose(
             float(actual),
             expected,
             rel_tol=1e-6,
             abs_tol=1e-6
         )
+
     else:
+
         passed = actual == expected
 
     print(
@@ -39,13 +42,15 @@ def main():
 
     print()
     print("==========================================")
-    print("     PHASE 3 FEATURE VALIDATION")
+    print("     PHASE 3 FINAL FEATURE VALIDATION")
     print("==========================================")
     print()
 
     if not FEATURE_FILE.exists():
+
         print("Feature file not found:")
         print(FEATURE_FILE)
+
         sys.exit(1)
 
     with open(
@@ -58,97 +63,107 @@ def main():
 
     features = data["features"]
 
-    tests = [
-        (
-            "document_type_insurance_claim",
-            features["document_type_insurance_claim"],
-            1
-        ),
-        (
-            "document_confidence",
-            features["document_confidence"],
-            0.812
-        ),
-        (
-            "document_score_margin",
-            features["document_score_margin"],
-            10.0
-        ),
-        (
-            "invoice_document_type",
-            features["invoice_document_type"],
-            "invoice"
-        ),
-        (
-            "invoice_document_confidence",
-            features["invoice_document_confidence"],
-            0.929
-        ),
-        (
-            "invoice_total",
-            features["invoice_total"],
-            34000.0
-        ),
-        (
-            "invoice_items_total",
-            features["invoice_items_total"],
-            34000.0
-        ),
-        (
-            "invoice_total_valid",
-            features["invoice_total_valid"],
-            1
-        ),
-        (
-            "claim_repair_amount",
-            features["claim_repair_amount"],
-            85000.0
-        ),
-        (
-            "claim_invoice_amount_difference",
-            features["claim_invoice_amount_difference"],
-            51000.0
-        ),
-        (
-            "invoice_to_claim_amount_ratio",
-            features["invoice_to_claim_amount_ratio"],
-            0.4
-        ),
-        (
-            "signature_similarity",
-            features["signature_similarity"],
-            1.0
-        ),
-        (
-            "signature_match",
-            features["signature_match"],
-            1
-        ),
-        (
-            "damage_ratio",
-            features["damage_ratio"],
-            0.0355
-        ),
-        (
-            "damage_detected",
-            features["damage_detected"],
-            1
-        ),
-        (
-            "damage_mean_pixel_difference",
-            features["damage_mean_pixel_difference"],
-            3.3271
-        )
-    ]
+    expected_features = {
+
+        # ==============================================
+        # BASE FEATURES
+        # ==============================================
+
+        "document_type_insurance_claim": 1,
+        "document_confidence": 0.812,
+        "document_score_margin": 10.0,
+
+        "invoice_document_type": "invoice",
+        "invoice_document_confidence": 0.929,
+
+        "invoice_total": 34000.0,
+        "invoice_items_total": 34000.0,
+
+        "invoice_total_valid": 1,
+
+        "claim_repair_amount": 85000.0,
+
+        "claim_invoice_amount_difference": 51000.0,
+
+        "invoice_to_claim_amount_ratio": 0.4,
+
+        "signature_similarity": 1.0,
+        "signature_match": 1,
+
+        "damage_ratio": 0.0355,
+        "damage_detected": 1,
+
+        "damage_mean_pixel_difference": 3.3271,
+
+        # ==============================================
+        # ML DAMAGE FEATURES
+        # ==============================================
+
+        "damage_ml_class": "F_Normal",
+        "damage_ml_confidence": 0.4393,
+
+        "damage_ml_front": 1,
+        "damage_ml_rear": 0,
+
+        "damage_ml_is_damage": 0,
+        "damage_ml_is_breakage": 0,
+        "damage_ml_is_crushed": 0,
+        "damage_ml_is_normal": 1
+    }
+
+    print(
+        "Expected feature count:",
+        len(expected_features)
+    )
+
+    print(
+        "Actual feature count  :",
+        len(features)
+    )
+
+    print()
 
     results = []
 
-    for name, actual, expected in tests:
+    # ==============================================
+    # CHECK FEATURE COUNT
+    # ==============================================
+
+    count_passed = (
+        len(features) == len(expected_features)
+    )
+
+    print(
+        f"{'feature_count':<42}"
+        f"{'PASS' if count_passed else 'FAIL'}"
+        f"    actual={len(features)}"
+        f" expected={len(expected_features)}"
+    )
+
+    results.append(count_passed)
+
+    # ==============================================
+    # CHECK EACH FEATURE
+    # ==============================================
+
+    for name, expected in expected_features.items():
+
+        if name not in features:
+
+            print(
+                f"{name:<42}"
+                f"FAIL    actual=MISSING"
+                f" expected={expected}"
+            )
+
+            results.append(False)
+
+            continue
 
         results.append(
             check(
                 name,
-                actual,
+                features[name],
                 expected
             )
         )
@@ -159,29 +174,55 @@ def main():
 
     print()
     print("------------------------------------------")
-    print(f"Total features checked : {total}")
+    print(f"Total checks           : {total}")
     print(f"Passed                 : {passed}")
     print(f"Failed                 : {failed}")
     print("------------------------------------------")
     print()
 
     report = {
+
         "phase": "phase3",
-        "test": "evidence_feature_validation",
-        "total": total,
-        "passed": passed,
-        "failed": failed,
-        "pass_rate": round(
-            passed / total * 100,
-            2
-        )
+
+        "test":
+            "final_feature_validation",
+
+        "feature_file":
+            str(FEATURE_FILE),
+
+        "expected_feature_count":
+            len(expected_features),
+
+        "actual_feature_count":
+            len(features),
+
+        "total_checks":
+            total,
+
+        "passed":
+            passed,
+
+        "failed":
+            failed,
+
+        "pass_rate":
+            round(
+                passed / total * 100,
+                2
+            ),
+
+        "status":
+            "PASS"
+            if failed == 0
+            else
+            "FAIL"
     }
 
     output = (
         ROOT
         / "phase3"
         / "validation"
-        / "phase3_feature_validation_report.json"
+        / "phase3_final_feature_validation_report.json"
     )
 
     with open(
@@ -201,6 +242,7 @@ def main():
     print()
 
     if failed:
+
         sys.exit(1)
 
 

@@ -50,3 +50,7 @@ models/**/*.cbm
 # OS files
 .DS_Store
 Thumbs.db
+
+# React / Vite
+dashboard/node_modules/
+dashboard/dist/

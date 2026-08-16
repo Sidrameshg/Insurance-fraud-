@@ -1,0 +1,25 @@
+{
+  "phase": "phase3",
+  "integration_type": "claim_fusion_test",
+  "test_row": 1,
+  "actual_fraud_label": 0,
+  "fraud_model": {
+    "model": "HistGradientBoosting",
+    "feature_count": 33,
+    "probability": 0.1252575954330779,
+    "threshold": 0.15,
+    "prediction": "NON_FRAUD"
+  },
+  "phase3_evidence": {
+    "feature_count": 24,
+    "evidence_score": 50.0,
+    "reasons": [
+      "Large invoice-to-claim amount mismatch",
+      "Traditional damage detector found damage",
+      "Traditional and ML damage detectors disagree"
+    ]
+  },
+  "final_risk": {
+    "level": "REVIEW_REQUIRED"
+  }
+}
