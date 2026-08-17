@@ -32,7 +32,9 @@ PHASE4_REPORT = (
     "/analyze",
     response_model=ClaimAnalysisResponse
 )
-def analyze_claim_route(request: ClaimAnalysisRequest):
+def analyze_claim_route(
+    request: ClaimAnalysisRequest
+):
 
     try:
 
@@ -44,23 +46,10 @@ def analyze_claim_route(request: ClaimAnalysisRequest):
 
             raise HTTPException(
                 status_code=404,
-                detail=f"Claim '{request.claim_id}' not found"
-            )
-
-        if not request.use_phase4:
-
-            return ClaimAnalysisResponse(
-                claim_id=request.claim_id,
-                claim_exists=True,
-
-                fraud_probability=None,
-                fraud_prediction=None,
-                risk_level=None,
-                evidence_score=None,
-
-                phase4_enabled=False,
-
-                status="PHASE4_DISABLED"
+                detail=(
+                    f"Claim '{request.claim_id}' "
+                    "not found"
+                )
             )
 
         return ClaimAnalysisResponse(
@@ -77,15 +66,37 @@ def analyze_claim_route(request: ClaimAnalysisRequest):
                 "fraud_prediction"
             ],
 
-            risk_level=result[
-                "risk_level"
+            fraud_threshold=result[
+                "fraud_threshold"
             ],
 
             evidence_score=result[
                 "evidence_score"
             ],
 
-            phase4_enabled=True,
+            evidence_reasons=result[
+                "evidence_reasons"
+            ],
+
+            risk_level=result[
+                "risk_level"
+            ],
+
+            uncertainty_level=result[
+                "uncertainty_level"
+            ],
+
+            human_review_required=result[
+                "human_review_required"
+            ],
+
+            human_review_reason=result[
+                "human_review_reason"
+            ],
+
+            phase3_fusion_available=result[
+                "phase3_fusion_available"
+            ],
 
             status=result[
                 "status"
@@ -114,20 +125,27 @@ def analyze_claim_route(request: ClaimAnalysisRequest):
 
         raise HTTPException(
             status_code=500,
-            detail=f"Claim analysis failed: {exc}"
+            detail=(
+                f"Claim analysis failed: {exc}"
+            )
         )
 
 
 @router.get(
     "/{claim_id}/investigation"
 )
-def get_claim_investigation(claim_id: str):
+def get_claim_investigation(
+    claim_id: str
+):
 
     if not PHASE4_REPORT.exists():
 
         raise HTTPException(
             status_code=500,
-            detail="Phase 4 investigation report not found"
+            detail=(
+                "Phase 4 investigation "
+                "report not found"
+            )
         )
 
     try:
@@ -144,48 +162,72 @@ def get_claim_investigation(claim_id: str):
 
         raise HTTPException(
             status_code=500,
-            detail="Invalid Phase 4 investigation report JSON"
+            detail=(
+                "Invalid Phase 4 "
+                "investigation report JSON"
+            )
         )
 
     except Exception as exc:
 
         raise HTTPException(
             status_code=500,
-            detail=f"Failed to load investigation report: {exc}"
+            detail=(
+                "Failed to load investigation "
+                f"report: {exc}"
+            )
         )
 
     return {
+
         "claim_id": claim_id,
-        "phase": report.get("phase"),
-        "component": report.get("component"),
-        "status": report.get("status"),
+
+        "phase": report.get(
+            "phase"
+        ),
+
+        "component": report.get(
+            "component"
+        ),
+
+        "status": report.get(
+            "status"
+        ),
+
         "claim_summary": report.get(
             "claim_summary",
             {}
         ),
+
         "important_evidence": report.get(
             "important_evidence",
             {}
         ),
+
         "contradictions": report.get(
             "contradictions",
             []
         ),
+
         "fraud_risk_interpretation": report.get(
             "fraud_risk_interpretation"
         ),
+
         "recommended_investigation_actions": report.get(
             "recommended_investigation_actions",
             []
         ),
+
         "retrieved_knowledge": report.get(
             "retrieved_knowledge",
             []
         ),
+
         "uncertainty": report.get(
             "uncertainty",
             {}
         ),
+
         "source_components": report.get(
             "source_components",
             {}

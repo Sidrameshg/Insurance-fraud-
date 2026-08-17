@@ -18,14 +18,6 @@ CLAIMS_DATASET = (
 )
 
 
-PHASE3_FINAL_DIR = (
-    ROOT
-    / "phase3"
-    / "integration"
-    / "final"
-)
-
-
 FRAUD_THRESHOLD = 0.15
 
 
@@ -71,22 +63,37 @@ def prepare_claim_for_model(row):
 
 def load_phase3_fusion(row_number):
 
-    fusion_file = (
-        PHASE3_FINAL_DIR
-        / f"phase3_final_claim_fusion_row_{row_number}.json"
-    )
+    candidate_files = [
 
-    if not fusion_file.exists():
+        (
+            ROOT
+            / "phase3"
+            / "integration"
+            / "final"
+            / f"phase3_final_claim_fusion_row_{row_number}.json"
+        ),
 
-        return None
+        (
+            ROOT
+            / "phase3"
+            / "integration"
+            / f"phase3_risk_fusion_row_{row_number}.json"
+        ),
+    ]
 
-    with open(
-        fusion_file,
-        "r",
-        encoding="utf-8"
-    ) as file:
+    for fusion_file in candidate_files:
 
-        return json.load(file)
+        if fusion_file.exists():
+
+            with open(
+                fusion_file,
+                "r",
+                encoding="utf-8"
+            ) as file:
+
+                return json.load(file)
+
+    return None
 
 
 def analyze_claim(claim_id: str):
@@ -128,7 +135,6 @@ def analyze_claim(claim_id: str):
     )
 
     evidence_score = None
-    risk_level = None
     reasons = []
 
     if phase3_result:
@@ -147,36 +153,61 @@ def analyze_claim(claim_id: str):
             []
         )
 
-        risk_level = (
-            phase3_result
-            .get(
-                "final_risk",
-                {}
-            )
-            .get(
-                "level"
-            )
-        )
+    # ========================================================
+    # FINAL RISK DECISION
+    # ========================================================
+
+    if fraud_probability >= FRAUD_THRESHOLD:
+
+        risk_level = "HIGH_RISK"
+
+    elif (
+        evidence_score is not None
+        and evidence_score >= 50
+    ):
+
+        risk_level = "REVIEW_REQUIRED"
 
     else:
 
-        if fraud_probability >= 0.30:
+        risk_level = "LOW_RISK"
 
-            risk_level = "HIGH_RISK"
+    # ========================================================
+    # UNCERTAINTY / HUMAN REVIEW
+    # ========================================================
 
-        elif fraud_probability >= FRAUD_THRESHOLD:
+    uncertainty_level = "LOW"
 
-            risk_level = "REVIEW_REQUIRED"
+    human_review_required = False
 
-        else:
+    human_review_reason = None
 
-            risk_level = "LOW_RISK"
+    threshold_distance = abs(
+        fraud_probability - FRAUD_THRESHOLD
+    )
+
+    if threshold_distance <= 0.05:
+
+        uncertainty_level = "HIGH"
+
+        human_review_required = True
+
+        human_review_reason = (
+            "Fraud probability is close to "
+            "the decision threshold."
+        )
+
+    elif threshold_distance <= 0.10:
+
+        uncertainty_level = "MEDIUM"
 
     return {
 
-        "claim_id": str(claim_id),
+        "claim_id":
+            str(claim_id),
 
-        "dataset_row": row_number,
+        "dataset_row":
+            row_number,
 
         "fraud_probability":
             fraud_probability,
@@ -184,14 +215,26 @@ def analyze_claim(claim_id: str):
         "fraud_prediction":
             fraud_prediction,
 
+        "fraud_threshold":
+            FRAUD_THRESHOLD,
+
         "evidence_score":
             evidence_score,
+
+        "evidence_reasons":
+            reasons,
 
         "risk_level":
             risk_level,
 
-        "evidence_reasons":
-            reasons,
+        "uncertainty_level":
+            uncertainty_level,
+
+        "human_review_required":
+            human_review_required,
+
+        "human_review_reason":
+            human_review_reason,
 
         "phase3_fusion_available":
             phase3_result is not None,
@@ -199,3 +242,13 @@ def analyze_claim(claim_id: str):
         "status":
             "ANALYSIS_COMPLETE"
     }
+
+
+if __name__ == "__main__":
+
+    result = analyze_claim("1")
+
+    print(json.dumps(
+        result,
+        indent=2
+    ))

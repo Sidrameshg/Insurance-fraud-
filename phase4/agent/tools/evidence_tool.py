@@ -1,68 +1,237 @@
-﻿import json
-from pathlib import Path
+﻿from pathlib import Path
+
+import pandas as pd
+
+from phase3.ml.fraud.inference.fraud_predictor import (
+    predict_fraud
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
 
-CONSISTENCY_FILE = (
+CLAIMS_DATASET = (
     ROOT
-    / "multi_document"
-    / "consistency"
-    / "claim_consistency.json"
-)
-
-EXPLANATION_FILE = (
-    ROOT
-    / "multi_document"
-    / "explanation"
-    / "claim_investigation_explanation.json"
+    / "data"
+    / "processed"
+    / "fraud_oracle_clean.csv"
 )
 
 
-def load_json(path):
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+FRAUD_THRESHOLD = 0.15
+HIGH_FRAUD_THRESHOLD = 0.30
+
+REVIEW_EVIDENCE_THRESHOLD = 30
+HIGH_EVIDENCE_THRESHOLD = 60
 
 
-def analyze_evidence():
+def find_claim_row(claim_id: str):
 
-    consistency = load_json(CONSISTENCY_FILE)
-    explanation = load_json(EXPLANATION_FILE)
+    if not CLAIMS_DATASET.exists():
 
-    analysis = consistency.get("analysis", {})
-    risk = consistency.get("phase3_risk_summary", {})
+        raise FileNotFoundError(
+            "Processed claims dataset not found: "
+            + str(CLAIMS_DATASET)
+        )
+
+    data = pd.read_csv(
+        CLAIMS_DATASET
+    )
+
+    matches = data[
+        data["PolicyNumber"].astype(str).str.strip()
+        ==
+        str(claim_id).strip()
+    ]
+
+    if matches.empty:
+
+        return None, None
+
+    row_index = matches.index[0]
+
+    return (
+        data.loc[row_index],
+        int(row_index)
+    )
+
+
+def prepare_claim_for_model(row):
+
+    claim = row.to_dict()
+
+    return pd.DataFrame(
+        [claim]
+    )
+
+
+def determine_risk(
+    fraud_probability,
+    evidence_score
+):
+
+    if (
+        fraud_probability >= HIGH_FRAUD_THRESHOLD
+        or
+        (
+            evidence_score is not None
+            and evidence_score >= HIGH_EVIDENCE_THRESHOLD
+        )
+    ):
+
+        return "HIGH_RISK"
+
+    if (
+        fraud_probability >= FRAUD_THRESHOLD
+        or
+        (
+            evidence_score is not None
+            and evidence_score >= REVIEW_EVIDENCE_THRESHOLD
+        )
+    ):
+
+        return "REVIEW_REQUIRED"
+
+    return "LOW_RISK"
+
+
+def determine_uncertainty(
+    fraud_probability
+):
+
+    threshold_distance = abs(
+        fraud_probability - FRAUD_THRESHOLD
+    )
+
+    if threshold_distance <= 0.05:
+
+        return (
+            "HIGH",
+            True,
+            "Fraud probability is close to "
+            "the decision threshold."
+        )
+
+    if threshold_distance <= 0.10:
+
+        return (
+            "MEDIUM",
+            False,
+            None
+        )
+
+    return (
+        "LOW",
+        False,
+        None
+    )
+
+
+def analyze_claim(claim_id: str):
+
+    row, row_number = find_claim_row(
+        claim_id
+    )
+
+    if row is None:
+
+        return None
+
+    claim_dataframe = (
+        prepare_claim_for_model(
+            row
+        )
+    )
+
+    # ========================================================
+    # FRAUD MODEL
+    # ========================================================
+
+    fraud_result = predict_fraud(
+        claim_dataframe
+    )
+
+    fraud_probability = float(
+        fraud_result[
+            "fraud_probability"
+        ]
+    )
+
+    fraud_prediction = (
+        "FRAUD"
+        if fraud_probability >= FRAUD_THRESHOLD
+        else "NON_FRAUD"
+    )
+
+    # ========================================================
+    # EVIDENCE
+    #
+    # Phase 5 does not invent evidence.
+    # It only exposes model output here.
+    # ========================================================
+
+    evidence_score = None
+    reasons = []
+
+    # ========================================================
+    # FINAL RISK
+    # ========================================================
+
+    risk_level = determine_risk(
+        fraud_probability,
+        evidence_score
+    )
+
+    # ========================================================
+    # UNCERTAINTY
+    # ========================================================
+
+    (
+        uncertainty_level,
+        human_review_required,
+        human_review_reason
+    ) = determine_uncertainty(
+        fraud_probability
+    )
+
+    # ========================================================
+    # FINAL RESULT
+    # ========================================================
 
     return {
-        "fraud_probability": risk.get("fraud_model", {}).get("probability"),
-        "fraud_prediction": risk.get("fraud_model", {}).get("prediction"),
-        "risk_level": risk.get("final_risk", {}).get("level"),
-        "evidence_score": risk.get("evidence", {}).get("score"),
-        "contradiction_count": analysis.get("contradiction_count", 0),
-        "contradictions": analysis.get("contradictions", []),
-        "consistent_evidence": analysis.get("consistent_evidence", []),
-        "observations": analysis.get("observations", []),
-        "recommended_actions": explanation.get(
-            "recommended_actions", []
-        )
+
+        "claim_id":
+            str(claim_id),
+
+        "dataset_row":
+            row_number,
+
+        "fraud_probability":
+            fraud_probability,
+
+        "fraud_prediction":
+            fraud_prediction,
+
+        "fraud_threshold":
+            FRAUD_THRESHOLD,
+
+        "evidence_score":
+            evidence_score,
+
+        "evidence_reasons":
+            reasons,
+
+        "risk_level":
+            risk_level,
+
+        "uncertainty_level":
+            uncertainty_level,
+
+        "human_review_required":
+            human_review_required,
+
+        "human_review_reason":
+            human_review_reason,
+
+        "status":
+            "ANALYSIS_COMPLETE"
     }
-
-
-if __name__ == "__main__":
-
-    print("=" * 50)
-    print("       PHASE 4 AGENT EVIDENCE TOOL")
-    print("=" * 50)
-
-    result = analyze_evidence()
-
-    print()
-    print("Fraud probability:", result["fraud_probability"])
-    print("Fraud prediction :", result["fraud_prediction"])
-    print("Risk level       :", result["risk_level"])
-    print("Evidence score   :", result["evidence_score"])
-    print("Contradictions   :", result["contradiction_count"])
-
-    print()
-    print("Evidence analysis tool ready.")
-
-    print("=" * 50)
